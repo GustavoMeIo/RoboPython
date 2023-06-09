@@ -9,7 +9,7 @@ class pdf:
             linhas = arquivo.readlines()  # lê as linhas do arquivo
 
             penultima_linha = linhas[-2]  # obtém a penúltima linha
-            partes_linha = penultima_linha.split('LUCIENE')  # separa a linha pelo termo 'LUCIENE'
+            partes_linha = penultima_linha.split(termo_proucurado)  
 
             valor = partes_linha[0].strip()  # obtém a primeira parte da linha (antes de 'LUCIENE') e remove espaços em branco
 
@@ -50,6 +50,9 @@ padrao = os.path.join(pasta, '*.pdf')
 
 # Lista de caminhos dos arquivos PDF
 arquivos_pdf = glob.glob(padrao)
+
+# Separa a linha pelo termo 'LUCIENE'
+termo_proucurado = "LUCIENE"
 
 # Loop para processar cada arquivo PDF
 for caminho_pdf in arquivos_pdf:
